@@ -7,7 +7,10 @@ var express = require("express"),
     port = parseInt(process.env.PORT, 10) || 4567;
 
 
-var options = {host : "https://openexchangerates.org/", path: "api/latest.json?app_id=1ebe0f2223e94cb794de0e615ab42793"};
+var options = {
+    host : "openexchangerates.org", 
+    path: "/api/latest.json?app_id=1ebe0f2223e94cb794de0e615ab42793"
+  };
 
 
 app.use(methodOverride());
@@ -30,7 +33,7 @@ app.get("/get-conv", function(req, res){
     bodyChunks.push(chunk);
    }).on("end", function(){
     var body = Buffer.concat(bodyChunks);
-    res.json(body);
+    res.send(body);
    })
   })
   
