@@ -12,12 +12,15 @@ app.controller("HomeCtrl", [
       $scope.convert = function(){
         $http.get("/get-conv")
           .success(function(data, status, headers){
-            console.log(data);
+            $scope.inr = data.rates["INR"]
           })
           .error(function(data, status, headers){
-            console.log(data);
           })
 
+      }
+
+      $scope.clear = function() {
+        $scope.inr = "";
       }
 
   }])

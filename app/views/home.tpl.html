@@ -1,1 +1,3 @@
-<button type="Submit" ng-click="convert()">Get today's rate</button>
+<button ng-if="!inr" ng-click="convert()">Get today's rate</button>
+<button ng-if="inr"  ng-click="clear()">Clear</button>
+<div ng-if="inr">{{inr}}</div>
